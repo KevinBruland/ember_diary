@@ -1,0 +1,30 @@
+@import 'ember-paper';
+.main-container{
+    padding: 0 0 50px 0;
+}
+.new-entry-container{
+    padding: 20px 0 50px 0;
+}
+.radio-mood-label{
+    display: block;
+    color: rgba(0,0,0,.38);
+    padding: 0 0 20px 0;
+}
+.radio-mood{
+    padding: 0 30px 0 0;
+}
+.entry-date{
+    display: block;
+    padding: 0 0 15px 0;
+}
+.expand-button-container{
+    text-align: center;
+    padding: 10px 0;
+}
+/* To retain spacing when the expandable icon is not present for short entries */
+.non-expandable-body{
+    padding: 0 0 36px 0;
+}
+.mood-icon{
+    float: right;
+}

@@ -1,0 +1,29 @@
+{{#paper-item class='md-3-line md-long-text'}}
+    <div class="md-list-item-text">
+        <div class="layout-row flex">
+            <div class="flex-80">
+                <h2>{{title}}</h2>
+            </div>
+            <div class="flex-20">
+                <span class='mood-icon'>{{paper-icon mood size=36}}</span>
+            </div>
+        </div>
+        <em class='entry-date'>{{moment-format dateStr 'MM-DD-YYYY'}}</em> 
+        {{#if isOpen}}
+            <p class='entry-body'>{{{retain-white-space body}}}</p>
+            <div class='expand-button-container'>
+                <a {{action 'toggleOpen'}}>{{paper-icon 'expand-less' size=36}}</a>
+            </div>
+        {{else}}
+            {{#if expandable}}
+                <p>{{trim-string body}}</p>
+                <div class='expand-button-container'>
+                    <a {{action 'toggleOpen'}}>{{paper-icon 'expand-more' size=36}}</a>
+                </div>
+            {{else}}
+            <p class='non-expandable-body'>{{body}}</p>                    
+            {{/if}}
+        {{/if}}
+    </div>
+    {{paper-divider}} 
+{{/paper-item}}

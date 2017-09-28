@@ -1,5 +1,17 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<!-- Header -->
+{{#paper-toolbar}}
+  {{#paper-toolbar-tools}}
+    <h2>Diary App</h2>
+  {{/paper-toolbar-tools}}
+{{/paper-toolbar}}
 
-{{outlet}}
+<div class='main-container flex-offset-5 flex-90 flex-offset-gt-sm-20 flex-gt-sm-60'>
+    <!-- Form Component for New Entries-->
+    {{new-entry-form}}
+
+    <!-- Display Entries From Storage -->
+    {{paper-divider}} 
+    {{#each sortedEntries as |entry|}}   
+        {{individual-entry title=entry.title body=entry.body expandable=entry.expandable dateStr=entry.dateStr mood=entry.mood}}
+    {{/each}}
+</div>

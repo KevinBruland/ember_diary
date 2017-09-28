@@ -1,0 +1,15 @@
+<h2>New Entry</h2>
+{{#paper-form onSubmit=(action 'submitEntry') as |form|}}
+    <div class='layout-column'>
+        {{paper-input block=true label='Title' value=title required=true onChange=(action (mut title))}}
+        {{paper-input block=true label='Entry date' type='date' value=entryDate onChange=(action (mut entryDate))}}
+        {{paper-input textarea=true block=true label='Body' passThru=(hash rows=5 maxRows=5) value=body required=true onChange=(action (mut body))}}
+        <label class='radio-mood-label'>Today I feel...</label>
+        {{#paper-radio-group class='layout' value='sentiment-very-satisfied' groupValue=(readonly mood) onChange=(action (mut mood)) as |group|}}
+            {{#group.radio class='radio-mood' value='sentiment-very-satisfied' primary=true}} {{paper-icon 'sentiment-very-satisfied' size=48}} {{/group.radio}}
+            {{#group.radio class='radio-mood' value='sentiment-neutral' primary=true}} {{paper-icon 'sentiment-neutral' size=48}} {{/group.radio}}
+            {{#group.radio class='radio-mood' value='sentiment-very-dissatisfied' primary=true}} {{paper-icon 'sentiment-very-dissatisfied' size=48}} {{/group.radio}}
+        {{/paper-radio-group}}
+    </div>
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}    
+{{/paper-form}}
